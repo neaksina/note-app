@@ -46,10 +46,10 @@ body {
 }
 /* Header Styling */
 .header {
-    background: url('https://pfst.cf2.poecdn.net/base/image/7b9f527aace3d7cb67eaffa6189cd36c16a490df7cf2f94d6f880e0565ab48db?w=1024&h=768&pmaid=261975855');
+    background: url('../images/Banner-noter-app.webp');
     background-size: cover;
 
-    background-position: center 25%;
+    background-position: center 80%;
     height: 80vh;
     color: white;
     display: flex;
@@ -59,7 +59,7 @@ body {
 }
 
 .header-content {
-    background: rgba(0, 0, 0, 0.301);
+    background: rgba(0, 0, 0, 0.459);
     padding: 20px;
     border-radius: 10px;
 }
@@ -132,7 +132,30 @@ body {
     justify-content: center;
     gap: 10px;
   }
-  
+  .imglogo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Ensures proper vertical alignment */
+    padding: 12px 17px;
+    color: #fff;/* Optional: add a border */
+    border-radius: 5px; /* Optional: round the edges */
+}
+
+.imglogo img {
+    max-width: 50px; /* Adjust the size of the image */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.imglogo .logo {
+    font-size: 1.2rem; /* Adjust font size */
+    font-weight: bold; /* Make the text bold */
+    color: #ffffff; /* Adjust text color */
+    margin-left: 10px; /* Add some spacing if necessary */
+}
+
+  .nav-links{
+    padding: 12px 22px;
+  }
   .footer-input input {
     padding: 10px;
     font-size: 14px;
@@ -193,3 +216,145 @@ body {
 
 
 
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .navbar {
+      flex-direction: column;
+     /* Stack items for smaller screens */
+     
+  }
+
+  .navbar .nav-links {
+      justify-content: center;
+      gap: 5px;
+  }
+
+  .header {
+      height: 60vh;
+  }
+
+  .header-content h1 {
+      font-size: 1.8rem;
+  }
+
+  .header-content p {
+      font-size: 1rem;
+  }
+
+  .footer-container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .navbar .logo {
+      font-size:20px;
+      display: flex;
+  }
+  .imglogo{
+    display: flex;
+    margin-right: 22%;
+    
+  }
+ .menu-btn{
+  position: relative;
+  left: 35%;
+ }
+ .navbar{
+ 
+  padding: 12px;
+}
+ 
+  
+ 
+
+ .menu-btn{
+  display: none;
+ }
+  .nav-links{
+    font-size: 10px;
+    display: none;
+  }
+
+  .header {
+      height: 50vh;
+  }
+
+  .header-content h1 {
+      font-size: 1.5rem;
+  }
+
+  .header-content p {
+      font-size: 0.9rem;
+  }
+
+  .footer-container {
+      padding: 20px;
+      gap: 20px;
+  }
+  
+}
+ 
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #333333c2;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 10px;
+  }
+  
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+}
+/* Responsive Styles */
+@media (max-width: 768px) {
+  /* On mobile screens, show the menu button */
+  .menu-btn {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #333;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 10px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+}
+
+@media (min-width: 769px) {
+  /* On larger screens (laptop, tablet, etc.), hide the menu button */
+  .menu-btn {
+    display: none;
+  }
+}
