@@ -302,6 +302,44 @@ function showArchive() {
 document.querySelector('a[href="#"]').addEventListener('click', showArchive);
 
 
+// Render Notes
+function renderNotes() {
+    notesContainer.innerHTML = '';
+    notes.forEach((note, index) => {
+        const noteCard = document.createElement('div');
+        noteCard.className = `note-card ${note.color} p-4 rounded shadow`;
+        noteCard.innerHTML = `
+            <h2 class="text-xl font-bold mb-2">${note.emoji} ${note.title}</h2>
+            <div class="mb-4">${note.content}</div>
+            <p class="text-gray-500 text-sm">Created: ${moment(note.timestamp).format('LLL')}</p>
+            <div class="flex space-x-2">
+                <button class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 edit-note">Edit</button>
+                <button class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600 pin-note">Pin</button>
+                <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 delete-note">Delete</button>
+                <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 save-note">Save as PDF</button>
+            </div>
+        `;
+
+        // Handle delete
+        noteCard.querySelector('.delete-note').addEventListener('click', () => deleteNote(index));
+
+        // Handle pin
+        noteCard.querySelector('.pin-note').addEventListener('click', () => {
+            noteCard.classList.toggle('pinned');
+            sortNotes();
+        });
+
+        // Handle edit
+        noteCard.querySelector('.edit-note').addEventListener('click', () => editNote(index));
+
+        // Handle save as PDF
+        noteCard.querySelector('.save-note').addEventListener('click', () => saveNoteAsPDF(note));
+
+        notesContainer.appendChild(noteCard);
+    });
+}   
+
+
 /*--------------------------Save note as PDF-------------------------------*/
 
 // Save Note as PDF
