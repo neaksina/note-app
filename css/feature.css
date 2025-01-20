@@ -1,0 +1,344 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.container {
+    display: flex;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #007bff;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #f4f4f4;
+    border-right: 1px solid #ddd;
+    padding: 20px 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 92vh;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    z-index: 9;
+    overflow-y: auto;
+}
+
+
+.navbar .imglogo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.navbar .logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+Sidebar
+.sidebar {
+    width: 250px;
+    background-color: #f4f4f4;
+    border-right: 1px solid #ddd;
+    padding: 20px 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+}
+
+.user-account {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.user-account i {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.user-account p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.user-account a {
+    font-size: 12px;
+    color: #007bff;
+    text-decoration: none;
+    margin-top: 5px;
+}
+
+.user-account a:hover {
+    text-decoration: underline;
+}
+
+.category {
+    margin-top: 10px;
+}
+
+.category a {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    color: #333;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.category a i {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.category a:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.social-icons {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
+}
+
+.social-icons a {
+    font-size: 18px;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #007bff;
+}
+
+
+/* Main Section */
+.main {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 250px; /* Offset for the fixed sidebar width */
+    margin-top: 60px; /* Offset for the fixed navbar height */
+    overflow-y: auto;
+    background-color: #f9f9f9;
+}
+
+
+.controls {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.controls input {
+    flex: 1;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.controls button {
+    padding: 10px 15px;
+    margin-left: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.add-note {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.add-note button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+#notes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 15px;
+}
+
+/*----------------------------- Display note --------------------------------------------*/
+
+.note-card {
+    transition: transform 0.2s;
+}
+.note-card:hover {
+    transform: scale(1.05);
+}
+.pinned { 
+    border: 2px solid gold; 
+}
+.note-card {
+word-wrap: break-word;
+overflow-wrap: break-word;
+white-space: normal;
+padding: 1rem;
+border-radius: 0.5rem;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+transition: transform 0.2s ease-in-out;
+}
+
+
+.bg-white { 
+    display: none;
+}
+
+#archive-container {
+    display: none; /* Initially hidden */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+
+/*----------------Responsive------------------------------------------------*/
+
+/* Adjust container layout for small screens */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto; /* Adjust height for better usability */
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+        padding: 10px;
+    }
+
+    .main {
+        padding: 10px;
+    }
+}
+
+/* Adjust Navbar for small screens */
+@media (max-width: 768px) {
+    .navbar {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 10px;
+    }
+
+    .navbar .imglogo img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .navbar .logo {
+        font-size: 18px;
+    }
+}
+
+/* Adjust Notes Container for smaller screens */
+@media (max-width: 768px) {
+    #notes-container {
+        grid-template-columns: 1fr; /* Single-column layout */
+        gap: 10px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    #notes-container {
+        grid-template-columns: repeat(2, 1fr); /* Two-column layout */
+        gap: 15px;
+    }
+}
+
+/* Adjust Note Cards */
+@media (max-width: 768px) {
+    .note-card {
+        padding: 0.5rem;
+        border-radius: 0.25rem;
+    }
+}
+
+/* Sidebar adjustments for small screens */
+@media (max-width: 576px) {
+    .category a {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+
+    .social-icons a {
+        font-size: 16px;
+    }
+}
+
+/* Adjust Add Note Button */
+@media (max-width: 768px) {
+    .add-note button {
+        font-size: 12px;
+        padding: 8px 15px;
+    }
+}
+
+/* Additional Responsive Improvements for Main Section */
+@media (max-width: 576px) {
+    .controls {
+        flex-direction: column;
+    }
+
+    .controls input {
+        margin-bottom: 10px;
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .controls button {
+        margin-left: 0;
+        width: 100%;
+    }
+}
