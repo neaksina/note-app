@@ -4,7 +4,34 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
 }
+.note-card {
+  transition: transform 0.2s;
+}
 
+.note-card:hover {
+  transform: scale(1.05);
+}
+
+.pinned {
+  border: 2px solid gold;
+}
+
+.note-card {
+  word-wrap: break-word;
+  /* Ensure long words break to fit the card */
+  overflow-wrap: break-word;
+  /* Compatible with other browsers */
+  white-space: normal;
+  /* Allow normal wrapping for text */
+  padding: 1rem;
+  /* Add some spacing inside the card */
+  border-radius: 0.5rem;
+  /* Rounded corners for aesthetics */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Light shadow for separation */
+  transition: transform 0.2s ease-in-out;
+  /* Smooth hover effect */
+}
 /* Navbar Styling */
 .navbar {
     display: flex;
