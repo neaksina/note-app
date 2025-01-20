@@ -62,6 +62,7 @@ function renderNotes() {
     });
 }
 
+///Darrk mood
 
 // Render Trash
 function renderTrash() {

@@ -21,54 +21,42 @@ form.addEventListener("submit", (event) => {
     text: "Your account has been successfully created in Local Storage.",
     icon: "success",
     confirmButtonText: "OK",
-  });
-
-  // Store the user data in Firebase
-  const firebaseConfig = {
-    databaseURL: "https://note-cbdc4-default-rtdb.asia-southeast1.firebasedatabase.app"
-  };
-
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  const database = firebase.database();
-
-  // Store user data in Firebase under 'users' node
-  const userRef = database.ref('users'); // 'users' will be the parent node for all users
-  const newUserRef = userRef.push();  // Create a new entry for each user
-  newUserRef.set({
-    email: email,
-    password: password
   }).then(() => {
-    Swal.fire({
-      title: 'Success!',
-      text: 'Your data has been saved to Firebase!',
-      icon: 'success',
-      confirmButtonText: 'OK'
-    });
-    // Optionally reset the form
-    form.reset();
-  }).catch((error) => {
-    console.error('Error saving data:', error);
-    Swal.fire({
-      title: 'Error!',
-      text: 'There was an issue saving your data.',
-      icon: 'error',
-      confirmButtonText: 'OK'
+    // Store the user data in Firebase
+    const firebaseConfig = {
+      databaseURL: "https://note-cbdc4-default-rtdb.asia-southeast1.firebasedatabase.app"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+
+    // Store user data in Firebase under 'users' node
+    const userRef = database.ref('users'); // 'users' will be the parent node for all users
+    const newUserRef = userRef.push();  // Create a new entry for each user
+    newUserRef.set({
+      email: email,
+      password: password
+    }).then(() => {
+      Swal.fire({
+        title: 'Success!',
+        text: 'Your data has been saved to Firebase!',
+        icon: 'success',
+        confirmButtonText: 'OK'
+      }).then(() => {
+        // Redirect to feature.html after success
+        window.location.href = "../pages/feature.html";
+      });
+      // Optionally reset the form
+      form.reset();
+    }).catch((error) => {
+      console.error('Error saving data:', error);
+      Swal.fire({
+        title: 'Error!',
+        text: 'There was an issue saving your data.',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      });
     });
   });
 });
-
-// Optional: Retrieve data from Firebase (for display or testing)
-const retrieveDataFromFirebase = () => {
-  const database = firebase.database();
-  const userRef = database.ref('users');
-
-  userRef.on('value', (snapshot) => {
-    const data = snapshot.val();
-    console.log(data); // This will log the stored users from Firebase
-    // You can then display or process this data as needed
-  });
-};
-
-// Optional: Call the function to retrieve data after page load
-// retrieveDataFromFirebase();  // Uncomment to test retrieving data
