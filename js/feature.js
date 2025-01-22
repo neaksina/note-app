@@ -448,3 +448,15 @@ async function searchAPI() {
         resultsDiv.innerHTML = `<p>Error: ${error.message}</p>`;
     }
   }
+
+
+
+  /////Button active 
+  function setActive(element) {
+    // Remove 'active' class from all buttons
+    const buttons = document.querySelectorAll('.category a');
+    buttons.forEach(button => button.classList.remove('active'));
+
+    // Add 'active' class to the clicked button
+    element.classList.add('active');
+}
