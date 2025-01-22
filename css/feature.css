@@ -25,6 +25,7 @@ button {
     background-color: #007bff;
     color: white;
     display: flex;
+    justify-content:space-between;
     align-items: center;
     padding: 10px 20px;
     height: 60px;
@@ -35,6 +36,21 @@ button {
     z-index: 10;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
+#results{
+    position: relative;
+    left: 25%;
+    top: 5%;
+}
+ .navbar input{
+    padding: 7px 30px;
+     background: #ffffff36;
+     border-radius:7px;
+     border: solid 2px #fff;
+   
+}
+
+
+ 
 
 /* Sidebar */
 .sidebar {

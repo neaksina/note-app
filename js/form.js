@@ -40,7 +40,7 @@ form.addEventListener("submit", (event) => {
         // Show success alert for Firebase save
         Swal.fire({
           title: "Success!",
-          text: "Your data has been saved to Firebase!",
+          text: "Welcome to note taker!",
           icon: "success",
           confirmButtonText: "OK",
         }).then(() => {

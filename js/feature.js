@@ -405,4 +405,46 @@ function saveNoteAsPDF() {
 }
 
 // Attach the function to the button
-document.getElementById('save-pdf').addEventListener('click', saveNoteAsPDF);
+document.getElementById('save-pdf').addEventListener('click', saveNoteAsPDF); 
+
+////searc api
+
+
+////search api
+
+async function searchAPI() {
+    const query = document.getElementById('search').value;
+    const resultsDiv = document.getElementById('results');
+  
+    if (!query.trim()) {
+        resultsDiv.innerHTML = '<p>Please enter a search term.</p>';
+        return;
+    }
+  
+    const url = `https://api.stackexchange.com/2.3/search?order=desc&sort=activity&intitle=${encodeURIComponent(query)}&site=stackoverflow`;
+  
+    try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error('Failed to fetch data.');
+  
+        const data = await response.json();
+  
+        if (data.items && data.items.length > 0) {
+            resultsDiv.innerHTML = data.items
+                .map(
+                    item => `
+                        <div>
+                            <h3><a href="${item.link}" target="_blank">${item.title}</a></h3>
+                            <p>Author: ${item.owner.display_name}</p>
+                        </div>
+                        <hr>
+                    `
+                )
+                .join('');
+        } else {
+            resultsDiv.innerHTML = '<p>No results found.</p>';
+        }
+    } catch (error) {
+        resultsDiv.innerHTML = `<p>Error: ${error.message}</p>`;
+    }
+  }
