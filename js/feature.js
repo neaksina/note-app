@@ -448,3 +448,61 @@ async function searchAPI() {
         resultsDiv.innerHTML = `<p>Error: ${error.message}</p>`;
     }
   }
+
+  ////General quesions
+
+  async function searchAPI() {
+    const query = document.getElementById('search').value;
+    const resultsDiv = document.getElementById('results');
+
+    if (!query.trim()) {
+        resultsDiv.innerHTML = '<p>Please enter a question to search.</p>';
+        return;
+    }
+
+    const apiUrl = `https://api.duckduckgo.com/?q=${encodeURIComponent(query)}&format=json&pretty=1`;
+
+    try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) throw new Error('Failed to fetch data.');
+
+        const data = await response.json();
+
+        if (data.AbstractText || data.RelatedTopics.length > 0) {
+            resultsDiv.innerHTML = `
+                <div class="result">
+                    <h3>${data.Heading || "Search Result"}</h3>
+                    <p>${data.AbstractText || "No detailed abstract available."}</p>
+                    ${
+                        data.AbstractURL
+                            ? `<p><a href="${data.AbstractURL}" target="_blank">Read more</a></p>`
+                            : ""
+                    }
+                </div>
+            `;
+
+            // Add Related Topics
+            if (data.RelatedTopics.length > 0) {
+                resultsDiv.innerHTML += "<h3>Related Topics:</h3>";
+                data.RelatedTopics.slice(0, 5).forEach(topic => {
+                    if (topic.Text) {
+                        resultsDiv.innerHTML += `
+                            <div class="result">
+                                <p>${topic.Text}</p>
+                                ${
+                                    topic.FirstURL
+                                        ? `<p><a href="${topic.FirstURL}" target="_blank">Learn more</a></p>`
+                                        : ""
+                                }
+                            </div>
+                        `;
+                    }
+                });
+            }
+        } else {
+            resultsDiv.innerHTML = '<p>No results found.</p>';
+        }
+    } catch (error) {
+        resultsDiv.innerHTML = `<p>Error: ${error.message}</p>`;
+    }
+}
