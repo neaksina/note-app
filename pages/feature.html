@@ -37,10 +37,7 @@
             <img src="../images/logo.jpg" alt="Logo">
             <div class="logo">Note Taker</div>
         </div>
-        <div class="serchapi">
-            <input type="text" id="search" placeholder="Research">
-            <button onclick="searchAPI()">Search</button>
-        </div>
+        
     </nav>
     <div id="results"></div>
     <div class="container">
@@ -48,13 +45,25 @@
         <div class="sidebar">
             <!-- Navigation Links -->
             <div class="category">
-                <a href="feature.html" onclick="showHome()"><i class="fa fa-house"></i> Home</a>
-                <a href="#" onclick="renderAccount()"><i class="fa-solid fa-user"></i> My Account</a>
-                <a href="#" onclick="createNewFolder()"><i class="fa-regular fa-folder-open"></i> New Folder</a>
-                <a href="#" onclick="renderTrash()"><i class="fa-solid fa-trash"></i> Trash</a>
-                <a href="#" onclick="showArchive()"><i class="fa-solid fa-file-arrow-down"></i> Archive</a>
-                <!-- <a href="#"><i class="fa-solid fa-file-export"></i> Export</a> -->
-
+                <a href="feature.html" onclick="setActive(this); showHome()">
+                    <i class="fa fa-house"></i> Home
+                </a>
+                <a href="#" onclick="setActive(this); renderAccount()">
+                    <i class="fa-solid fa-user"></i> My Account
+                </a>
+                <a href="#" onclick="setActive(this); createNewFolder()">
+                    <i class="fa-regular fa-folder-open"></i> New Folder
+                </a>
+                <a href="#" onclick="setActive(this); renderTrash()">
+                    <i class="fa-solid fa-trash"></i> Trash
+                </a><br>
+                <a href="#" onclick="setActive(this); showArchive()">
+                    <i class="fa-solid fa-file-arrow-down"></i> Archive
+                </a>
+                <div class="serchapi">
+                    <input type="text" id="search" placeholder="Research">
+                    <button onclick="searchAPI()">Search</button>
+                </div>
             </div>
 
             <!-- Social Media Links -->

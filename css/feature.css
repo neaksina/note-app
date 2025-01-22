@@ -257,6 +257,39 @@ transition: transform 0.2s ease-in-out;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1rem;
 }
+.serchapi{
+ 
+}
+.serchapi input[type="text"]{
+    width: 100%;
+    padding:5px;
+    background: #fff;
+    border-radius: 7px;
+    border: solid 1px rgba(0, 0, 0, 0.404);
+}
+.serchapi button{
+     padding:4px 16px;
+     background:blue;
+     margin-top: 4%;
+     margin-left: 55%;
+     color: #fff;
+     border-radius:7px;
+}
+.category{
+    display: block;
+}
+.category a {
+    text-decoration: none;
+    padding: 10px;
+    display: inline-block;
+    color: black;
+}
+
+.category a.active {
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+}
 
 
 /*----------------Responsive------------------------------------------------*/
