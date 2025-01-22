@@ -355,8 +355,8 @@ function renderNotes() {
             <p class="text-gray-500 text-sm">Created: ${moment(note.timestamp).format('LLL')}</p>
             <div class="flex space-x-2 mt-4">
                 <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 edit-note">Edit</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 pin-note">Archive</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 delete-note">Delete</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-green-600 pin-note">Archive</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-red-600 delete-note">Delete</button>
             </div>
         `;
 
