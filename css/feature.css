@@ -299,7 +299,7 @@ transition: transform 0.2s ease-in-out;
     .container {
         flex-direction: column;
     }
-
+     
     .sidebar {
         width: 100%;
         height: auto; /* Adjust height for better usability */
@@ -319,8 +319,11 @@ transition: transform 0.2s ease-in-out;
         flex-wrap: wrap;
         height: auto;
         padding: 10px;
+         
     }
-
+    .category{
+        display: inline-block;
+    }
     .navbar .imglogo img {
         width: 30px;
         height: 30px;
@@ -356,9 +359,11 @@ transition: transform 0.2s ease-in-out;
 
 /* Sidebar adjustments for small screens */
 @media (max-width: 576px) {
+    
     .category a {
         font-size: 14px;
         padding: 8px 10px;
+         display: block;
     }
 
     .social-icons a {
